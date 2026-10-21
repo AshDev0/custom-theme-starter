@@ -4,7 +4,7 @@
     {% for item in cart.items %}
       <tr>
         <td>
-          {% render 'image':image, image: item.image, url: item.url %}
+          {% render 'image', image: item.image, url: item.url %}
         </td>
         <td>
           <p>{{ item.product.title }}</p>
@@ -25,4 +25,13 @@
   "name": "t:general.cart",
   "settings": []
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image':image, image: item.image, url: item.url %}"
+  to: "{% render 'image', image: item.image, url: item.url %}"
+  position: 161..215
+{%- endcomment -%}

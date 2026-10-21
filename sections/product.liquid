@@ -1,6 +1,6 @@
 <div class="product-images">
   {% for image in product.images %}
-    {% render 'image':image, class: 'product-image', image: image %}
+    {% render 'image', class: 'product-image', image: image %}
   {% endfor %}
 </div>
 
@@ -42,4 +42,13 @@
     "groups": ["header", "footer"]
   }
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image':image, class: 'product-image', image: image %}"
+  to: "{% render 'image', class: 'product-image', image: image %}"
+  position: 69..127
+{%- endcomment -%}

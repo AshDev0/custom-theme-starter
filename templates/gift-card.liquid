@@ -7,7 +7,7 @@
     {% render 'css-variables' %}
 
     {% # Load and preload the critical CSS %}
-    {{ "critical.css" | asset_url | stylesheet_tag preload="true" }}
+    {{ "critical.css" | asset_url | stylesheet_tag }}
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -70,4 +70,13 @@
       </div>
     </main>
   </body>
-</html>
+</html>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{{ "critical.css" | asset_url | stylesheet_tag preload="true" }}'
+  to: '{{ "critical.css" | asset_url | stylesheet_tag }}'
+  position: 206..255
+{%- endcomment -%}

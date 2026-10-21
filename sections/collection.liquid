@@ -4,14 +4,7 @@
     {% for product in collection.products %}
       <div class="collection-product">
         {% if product.featured_image %}
-          {% render 'image':image,
-            class: 'collection-product__image',
-            image: product.featured_image,
-            url: product.url,
-            width: 400,
-            height: 400,
-            crop: 'center'
-          %}
+          {% render 'image', class: 'collection-product__image', image: product.featured_image, url: product.url, width: 400, height: 400, crop: 'center' %}
         {% endif %}
         <div class="collection-product__content">
           <p>{{ product.title | escape | link_to: product.url }}</p>
@@ -36,4 +29,22 @@
   "name": "t:general.collection",
   "settings": []
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% render 'image':image,
+                class: 'collection-product__image',
+                image: product.featured_image,
+                url: product.url,
+                width: 400,
+                height: 400,
+                crop: 'center'
+              %}
+  to: "{% render 'image', class: 'collection-product__image', image: product.featured_image,
+    url: product.url, width: 400, height: 400, crop: 'center' %}"
+  position: 243..389
+{%- endcomment -%}

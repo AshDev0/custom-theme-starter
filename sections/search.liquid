@@ -23,7 +23,7 @@
           <div class="search-result">
             {% assign featured_image = result.featured_image | default: result.image %}
             {% if featured_image %}
-              {% render 'image':image, class: 'search-result__image', image: featured_image, url: result.url, width: 400 %}
+              {% render 'image', class: 'search-result__image', image: featured_image, url: result.url, width: 400 %}
             {% endif %}
             <div class="search-result__content">
               <p>
@@ -59,4 +59,15 @@
   "name": "t:general.search",
   "settings": []
 }
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render 'image':image, class: 'search-result__image', image: featured_image,
+    url: result.url, width: 400 %}"
+  to: "{% render 'image', class: 'search-result__image', image: featured_image, url:
+    result.url, width: 400 %}"
+  position: 928..1031
+{%- endcomment -%}
